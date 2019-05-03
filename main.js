@@ -1,13 +1,11 @@
 require('dotenv').config()
 const login = require('facebook-chat-api');
-const { createLogger, format, transports } = require('winston');
+const winston = require('winston');
 const nodemailer = require('nodemailer');
 
-const {
-  FB_USER,
-  FB_PASS,
-  RECEIVE,
-} = process.env
+const FB_USER = process.env.FB_USER
+const FB_PASS = process.env.FB_PASS
+const RECEIVE = process.env.RECEIVE
 
 // create reusable transporter object using the default SMTP transport
 const transporter = nodemailer.createTransport({
@@ -18,23 +16,23 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const logger = createLogger({
+const logger = winston.createLogger({
   level: 'info',
-  format: format.combine(
-    format.timestamp({
-      format: 'YYYY-MM-DD HH:mm:ss'
+  format: winston.format.combine(
+    winston.format.timestamp({
+      winston.format: 'YYYY-MM-DD HH:mm:ss'
     }),
-    format.errors({ stack: true }),
-    format.splat(),
-    format.json(),
+    winston.format.errors({ stack: true }),
+    winston.format.splat(),
+    winston.format.json(),
   ),
   transports: [
     //
     // - Write to all logs with level `info` and below to `combined.log`
     // - Write all logs error (and below) to `error.log`.
     //
-    new transports.File({ filename: 'error.log', level: 'error' }),
-    new transports.File({ filename: 'combined.log' })
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'combined.log' })
   ]
 });
 
