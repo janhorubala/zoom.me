@@ -20,7 +20,7 @@ const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
     winston.format.timestamp({
-      winston.format: 'YYYY-MM-DD HH:mm:ss'
+      format: 'YYYY-MM-DD HH:mm:ss'
     }),
     winston.format.errors({ stack: true }),
     winston.format.splat(),
