@@ -1,0 +1,23 @@
+{
+  "name": "zoom.me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janhorubala/zoom.me.git"
+  },
+  "author": "Jan Horubała",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janhorubala/zoom.me/issues"
+  },
+  "homepage": "https://github.com/janhorubala/zoom.me#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "facebook-chat-api": "^1.6.1"
+  }
+}
